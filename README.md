@@ -28,6 +28,10 @@ Each microservice directory contains a serverless.yml file, which allows to spec
 framework for this microservice, for example on which port it is listening, which functions can be used, where can we find them, and what
 is the route to call them.
 
+## Serverless-provider-handler
+
+Each microservice require a node module called serverless-provider-handler. This allows to deal with the async event when there is a request. This allows to take all the important data from the request and pass it to the microservice function that was called, but also to give a response to the request.
+I modified this file so that it does a difference between a POST method, a GET method, and a DELETE method. If the method is POST, it won't pass the parameters in argument to the microservice function, but it will do it in the case of a GET method or a DELETE method. These arguments will then be read in some of the microservices functions for example in bookFinder, to find a specific book in function of the id we passed in the request.
 
 ## Start
 
@@ -64,4 +68,4 @@ one of them in a different app, we can easily do it.
 * Each microservice contains basic functions, because the purpose here was for me to learn how to use the serverless framework, docker
 and how to make microservices, but now that I know how to do it, it's of course possible to make more complex functions, and to make a frontend app
 to use all of this correctly.
-
+* The architecture is pretty clear, but maybe we can still make it cleaner by making a very clear separation between the microservice itself, and the serverless framework
