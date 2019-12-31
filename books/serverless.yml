@@ -1,0 +1,30 @@
+service: booksservice
+
+provider:
+  runtime: nodejs8
+
+functions:
+  bookSaver:
+    handler: books.bookSaver
+    events:
+      - http: POST bookSaver
+
+  bookLister:
+    handler: books.bookLister
+    events:
+      - http: GET bookLister
+          
+  bookFinder:
+    handler: books.bookFinder
+    events:
+      - http: GET bookFinder
+
+  bookDeleter:
+    handler: books.bookDeleter
+    events:
+      - http: DELETE bookDeleter
+
+
+plugins:
+  - serverless-offline
+

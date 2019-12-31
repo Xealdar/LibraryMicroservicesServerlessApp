@@ -1,0 +1,33 @@
+service: customersservice
+
+provider:
+  runtime: nodejs8
+
+functions:
+  customerSaver:
+    handler: customers.customerSaver
+    events:
+      - http: POST customerSaver
+  
+  customerLister:
+    handler: customers.customerLister
+    events:
+      - http: GET customerLister
+    
+  customerFinder:
+    handler: customers.customerFinder
+    events:
+      - http: GET customerFinder
+
+  customerDeleter:
+    handler: customers.customerDeleter
+    events:
+      - http: DELETE customerDeleter
+
+custom:
+  serverless-offline:
+    port: 5555
+
+plugins:
+  - serverless-offline
+

@@ -1,0 +1,19 @@
+{
+  "name": "orders",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "serverless offline start",
+    "docker": "serverless offline start --host 0.0.0.0"
+  },
+  "dependencies": {
+    "mongoose": "^5.8.3",
+    "ramda": "^0.26.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "serverless": "^1.60.4",
+    "serverless-offline": "^5.12.1",
+    "serverless-provider-handler": "^1.0.3"
+  }
+}

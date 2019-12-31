@@ -1,0 +1,49 @@
+version: '3.7'
+services:
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    networks:
+      - Library
+
+  books:
+    image: books
+    ports:
+      - 3000:3000
+    environment:
+      DB: mongodb://mongo:27017/db-books
+#    volumes:
+#      - type: bind
+#        bind:
+#          propagation: private
+#        source: ./books
+#        target: /books
+    networks:
+      - Library
+
+  customers:
+    image: customers
+    ports:
+      - 5555:5555
+    environment: 
+      DB: mongodb://mongo:27017/db-books
+      #Voir sur son exemple comment mettre l'environment d'un autre microservice
+    networks: 
+      - Library
+  
+  orders:
+    image: orders
+    ports:
+      - 7777:7777
+    environment:
+      BookService: http://books:3000/bookFinder
+      CustomerService: http://customers:5555/customerFinder
+      DB: mongodb://mongo:27017/db-books
+    networks:
+      - Library
+
+
+
+networks:
+  Library:

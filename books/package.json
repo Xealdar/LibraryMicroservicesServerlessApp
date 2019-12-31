@@ -1,0 +1,21 @@
+{
+  "name": "books",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "serverless offline start",
+    "docker": "serverless offline start --host 0.0.0.0"
+  },
+  "dependencies": {
+    "mongoose": "^5.7.12",
+    "ramda": "^0.26.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "serverless-provider-handler": "^1.0.3"
+  },
+  "devDependencies": {
+    "serverless": "^1.55.1",
+    "serverless-offline": "^5.12.0"
+  }
+}

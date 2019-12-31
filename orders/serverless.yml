@@ -1,0 +1,29 @@
+service: ordersservice
+
+provider:
+    runtime: nodejs8
+
+functions:
+    orderSaver:
+        handler: orders.orderSaver
+        events:
+            - http: POST orderSaver
+    orderLister:
+        handler: orders.orderLister
+        events:
+            - http: GET orderLister
+    orderFinder:
+        handler: orders.orderFinder
+        events:
+            - http: GET orderFinder
+    orderDeleter:
+        handler: orders.orderDeleter
+        events:
+            - http: DELETE orderDeleter
+
+custom:
+    serverless-offline:
+        port: 7777
+
+plugins:
+    - serverless-offline
