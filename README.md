@@ -3,7 +3,7 @@ Library app composed of books, customers, and orders microservices - made with S
 
 ## Description
 
-Library is an app wich allows run 3 different microservices:
+Library is an app wich allows to run 3 different microservices:
 * books which allows to save a book in a mongo dataBase, and access it thanks to serverless
 * customers which allows to save a customer in a mongo dataBase, and access it thanks to serverless
 * orders which allows to save an order in a mongo dataBase, and access it thanks to serverless.
